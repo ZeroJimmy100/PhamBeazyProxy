@@ -1,0 +1,57 @@
+1) const express = require('express');
+const http = require('http');
+
+const app1 = express();
+
+app1.get('/mydoc.docx', function (req, res) {
+  res.download(Output[0].Links[0]);
+});
+
+app1.listen(8000);
+
+const app2 = express();
+
+app2.get('/', function (req, res) {
+  http.get({ path: '/mydoc.docx', hostname: 'dropbox.com', port: 8000}, function (resp) {
+    res.setHeader('content-disposition', resp.headers['content-disposition']);
+    res.setHeader('Content-type', resp.headers['content-type']);
+    resp.pipe(res);
+  });
+});
+
+app2.listen(9000);
+
+2) var http = require('http'),
+    httpProxy = require('http-proxy');
+
+// Create proxy server and set the target in the options.
+
+httpProxy.createProxyServer({target:'http://localhost:9000'}).listen(8000); // See (†)
+
+// Create target server
+
+http.createServer(function (req, res) {
+  res.writeHead(200, { 'Content-Type': 'text/plain' });
+  res.write('request successfully proxied!' + '\n' + JSON.stringify(req.headers, true, 2));
+  res.end();
+}).listen(9000);
+
+3) app1.get('/twitterfile.pdf', function (req, res) {
+    const file = fs.createWriteStream("twitter.pdf");
+    const request = https.get("https://twitter.com/randomDoc.pdf", function(resp){
+        resp.pipe(file);
+    });
+    res.download("twitter.pdf");
+    console.log("Downloading file. . . ");
+      
+});
+  
+app1.listen(80);
+
+app.get('/d3.pdf', (req, res) => {
+    http.get({path: '/twitterfile.pdf', hostname: 'localhost', port: 80}, function (resp) {
+        res.setHeader('content-disposition', resp.headers['content-disposition']);
+        res.setHeader('content-type', resp.headers['content-type']);
+        resp.pipe(res);
+      });
+})

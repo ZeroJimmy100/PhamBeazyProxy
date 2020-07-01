@@ -1,0 +1,72 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    table
+    {
+        border-collapse: collapse;
+    }
+
+    table th
+    {
+        text-align: left;
+        background-color: #3a6070;
+        color: #FFF;
+        padding: 4px 30px 4px 8px;
+    }
+
+    table td
+    {
+        border: 1px solid #e3e3e3;
+        padding: 4px 8px;
+    }
+
+    table tr:nth-child(odd) td
+    {
+        background-color: #e7edf0;
+    }
+
+    h2
+    {
+        font-family: sans-serif;
+        font-style: italic;
+    }
+    
+</style>
+<body>
+    <div>
+        <h2>Download Proxy</h2>
+        <table>
+            <tr>
+                <% for(let items = 0; items < myOutputs.length; items++){ %>
+                    <td><%= myOutputs[items].item %></td>
+                <% } %>
+            </tr>
+            <tr>
+                <td><a href="a1.docx"><%= myOutputs[0].Links[0] %></a></td>
+                <td><a href="b1.txt"><%= myOutputs[1].Links[0] %></a></td>
+                <td><a href="c1.doc"><%= myOutputs[2].Links[0] %></a></td>
+                <td><a href="d1.txt"><%= myOutputs[3].Links[0] %></a></td>
+            </tr>
+            <tr>
+                <td><a href="a2.docx"><%= myOutputs[0].Links[1] %></a></td>
+                <td><a href="b2.xlsx"><%= myOutputs[1].Links[1] %></a></td>
+                <td><a href="c2.txt"><%= myOutputs[2].Links[1] %></a></td>
+                <td><a href="d2.xlsx"><%= myOutputs[3].Links[1] %></a></td>
+            </tr>
+            <tr>
+                <td><a href="a3.csv"><%= myOutputs[0].Links[2] %></a></td>
+                <td><a href="b3.pdf"><%= myOutputs[1].Links[2] %></a></td>
+                <td><a href="c3.xls"><%= myOutputs[2].Links[2] %></a></td>
+                <td><a href="d3.pdf"><%= myOutputs[3].Links[2] %></a></td>
+            </tr>
+           
+        
+        </table>
+       
+    </div>
+</body>
+</html>

@@ -1,0 +1,17 @@
+[{
+    "item": "A",
+    "Links": ["https://yourservername.com/a1.docx", "https://yourservername.com/a2.docx", "https://yourservername.com/a3.csv"]
+    },
+    {
+        "item": "B",
+        "Links": ["https://yourservername.com/b1/txt", "https://yourservername.com/b2.xlsx", "https://yourservername.com/b3.pdf"]
+    },
+    {
+        "item": "C",
+        "Links": ["https://yourservername.com/c1.doc", "https://yourservername.com/c2.txt", "https://yourservername.com/c3.xls"]
+    },
+    {
+        "item": "D",
+        "Links": ["https://yourservername.com/d1.txt", "https://yourservername.com/d2.xlsx", "https://yourservername.com/d3.pdf"]
+    }
+]
